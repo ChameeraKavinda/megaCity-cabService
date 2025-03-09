@@ -52,7 +52,7 @@ public class AdminLoginServelet extends HttpServlet {
 	        HttpSession session = request.getSession();
 	        session.setAttribute("admin", admin);
 	        
-	        int adminId = admin.getAdminId(); // Retrieve adminId from the admin object
+	        int adminId = admin.getAdminId(); 
 
 	        response.sendRedirect("Admin/viewAllAdmins.jsp?adminId=" + adminId);
 	    } else {
