@@ -161,7 +161,7 @@ public class BookingController extends HttpServlet {
                 }
                 response.getWriter().write("<script>"
                 	    + "if (confirm('Successful Booking! Check your Email')) {"
-                	    + "   window.location.href='" + request.getContextPath() + "/intro.jsp';"
+                	    + "   window.location.href='" + request.getContextPath() + "/index.jsp';"
                 	    + "}"
                 	    + "</script>");
             } else {

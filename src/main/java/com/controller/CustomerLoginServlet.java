@@ -36,7 +36,7 @@ public class CustomerLoginServlet extends HttpServlet {
             session.setAttribute("customerId", customer.getCustomerId()); // Store customerId separately
 
             // Redirect to bookVehicle.jsp with customerId in the URL
-            response.sendRedirect(request.getContextPath() + "/intro.jsp?customerId=" + customer.getCustomerId());
+            response.sendRedirect(request.getContextPath() + "/index.jsp?customerId=" + customer.getCustomerId());
         } else {
             // Failed login
             request.setAttribute("errorMessage", "Invalid Email or Password");

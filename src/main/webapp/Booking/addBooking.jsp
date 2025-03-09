@@ -323,9 +323,16 @@ input[type="submit"]:hover {
     <form action="addBooking" method="post">
         <div class="form-row">
             <div class="form-group">
-                <label for="bookingDate">Booking Date</label>
-                <input type="date" id="bookingDate" name="bookingDate" required>
-            </div>
+    		<label for="bookingDate">Booking Date</label>
+    		<input type="date" id="bookingDate" name="bookingDate" required>
+			</div>
+
+			<script>
+    
+    		let today = new Date().toISOString().split('T')[0];
+    		document.getElementById("bookingDate").setAttribute("min", today);
+			</script>
+
             
             <div class="form-group">
                 <label for="pickupLocation">Pickup Location</label>
