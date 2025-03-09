@@ -90,7 +90,7 @@
                      </ul>
                   </li>
                   
-                  <li><a href="#" class="nav__link">Billing</a></li>
+                   <!--  <li><a href="#" class="nav__link">Billing</a></li>-->
 
                   <!--=============== DROPDOWN 2 ===============-->
                   <li class="dropdown__item">
@@ -128,7 +128,8 @@
                      </ul>
                   </li>
 
-                  <li><a href="#" class="nav__link">Contact Us</a></li>
+                  <li><a href="#feedback" class="nav__link">Contact Us</a></li>
+                   <li><a href="View/userGuideline.jsp" class="nav__link">Help</a></li>
                </ul>
             </div>
          </nav>
@@ -169,6 +170,7 @@
     <div class="info-container">
         <h2>Reliable Rides, Anytime, Anywhere!</h2>
        <br> <p>Experience hassle-free, safe, and comfortable rides with Mega City Cab Service. Whether you're commuting to work, heading to the airport, or exploring the city, our professional drivers and well-maintained vehicles ensure a smooth journey. Book your ride now and travel with confidence!</p>
+       
        <br><br><br><br> <a href="View/customerRegister.jsp" class="cta-btn">Book Your Ride Now <i class="ri-arrow-right-double-line" style="font-size: 30px;"></i></a>
     </div>
     <div class="taxi-image">

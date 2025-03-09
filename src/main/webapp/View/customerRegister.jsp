@@ -135,14 +135,14 @@
             color: white;
         }
 
-        .divider {
+        .sign-with {
             text-align: center;
             margin: 24px 0;
             position: relative;
         }
 
-        .divider::before,
-        .divider::after {
+        .sign-with::before,
+        .sign-with::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -151,15 +151,15 @@
             background: var(--border-color);
         }
 
-        .divider::before {
+        .sign-with::before {
             left: 0;
         }
 
-        .divider::after {
+        .sign-with::after {
             right: 0;
         }
 
-        .divider-text {
+        .sign-with-text {
             background: white;
             padding: 0 8px;
             color: var(--text-secondary);
@@ -186,7 +186,9 @@
             border-radius: 50%;
         }
 
+       
         .error-message {
+            display: none;
             margin-top: 12px;
             padding: 10px;
             background: #fff5f5;
@@ -195,7 +197,6 @@
             color: var(--error-color);
             font-size: 14px;
         }
-
         .signup-link {
             text-align: center;
             margin-top: 18px;
@@ -229,7 +230,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+     <div class="container">
         <div class="image-section">
             <img src="https://static8.depositphotos.com/1258191/1030/i/450/depositphotos_10300933-stock-photo-two-businessmen-shaking-hands.jpg">
         </div>
@@ -241,50 +242,49 @@
             <h2>Customer Registration</h2>
             <p class="form-description">Experience seamless rides with our professional drivers. Book your ride today!</p>
             
-            <form action="customerRegister" method="post" id="registrationForm">
+            <form action="customerRegister" method="post" id="registrationForm" novalidate>
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" required 
-                           placeholder="Enter your full name" autocomplete="name">
+                    <label for="name">Name*</label>
+                    <input type="text" name="name" id="name" required placeholder="Enter your name" autocomplete="name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" name="email" id="email" required placeholder="Enter your email" autocomplete="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password*</label>
+                    <input type="password" name="password" id="password" required placeholder="Create a password" autocomplete="new-password">
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required 
-                           placeholder="Enter your email" autocomplete="email">
+                    <label for="confirmPassword">Confirm Password*</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" required placeholder="Confirm your password">
                 </div>
-
+                
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required 
-                           placeholder="Create a password" autocomplete="new-password">
-                </div>
-
+        			<label for="nicNumber">NIC Number*</label>
+        			<input type="text" name="nicNumber" id="nicNumber" required placeholder="Enter your NIC number">
+    			</div>
+                
                 <div class="form-group">
-                    <label for="nicNumber">NIC Number</label>
-                    <input type="text" name="nicNumber" id="nicNumber" required 
-                           placeholder="Enter your NIC number">
+                    <label for="phoneNumber">Phone Number*</label>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" required placeholder="Enter your phone number" autocomplete="tel" pattern="[0-9]{10}">
                 </div>
-
+                
                 <div class="form-group">
-                    <label for="phoneNumber">Phone Number</label>
-                    <input type="tel" name="phoneNumber" id="phoneNumber" required 
-                           placeholder="Enter your phone number" autocomplete="tel">
-                </div>
-
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" name="address" id="address" required 
-                           placeholder="Enter your address" autocomplete="street-address">
-                </div>
-
-                <button type="submit" class="submit-button">
-                    Register
-                </button>
+        			<label for="address">Address*</label>
+        			<input type="text" name="address" id="address" required placeholder="Enter your address" autocomplete="street-address">
+    			</div>
+                
+                <div class="error-message" id="errorContainer"></div>
+                <button type="submit" class="submit-button">Register</button>
             </form>
 
-            <div class="divider">
-                <span class="divider-text">or sign in with</span>
+
+            <div class="sign-with">
+                <span class="sign-with-text">or sign in with</span>
             </div>
 
             <div class="social-icons">
@@ -299,27 +299,45 @@
                 </a>
             </div>
 
-            <div id="errorContainer"></div>
-
             <div class="signup-link">
                 Don't have an account? <a href="<%= request.getContextPath() %>/View/login.jsp">Sign in</a>
             </div>
         </div>
     </div>
 
-    <script>
+     <script>
         document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            const password = document.getElementById('password').value;
+            let isValid = true;
             const errorContainer = document.getElementById('errorContainer');
+            errorContainer.innerHTML = '';
+            errorContainer.style.display = 'none';
             
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
             if (password.length < 8) {
+                errorContainer.innerHTML += "Password must be at least 8 characters.<br>";
+                isValid = false;
+            }
+            if (password !== confirmPassword) {
+                errorContainer.innerHTML += "Passwords do not match.<br>";
+                isValid = false;
+            }
+            
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            if (!/^[0-9]{10}$/.test(phoneNumber)) {
+                errorContainer.innerHTML += "Phone number must be exactly 10 digits.<br>";
+                isValid = false;
+            }
+            
+            const name = document.getElementById('name').value;
+            if (!/^[A-Za-z\s]{2,}$/.test(name)) {
+                errorContainer.innerHTML += "Name should contain only letters.<br>";
+                isValid = false;
+            }
+            
+            if (!isValid) {
                 e.preventDefault();
-                errorContainer.innerHTML = `
-                    <div class="error-message">
-                        <i class="ri-error-warning-line"></i>
-                        Password must be at least 8 characters long
-                    </div>
-                `;
+                errorContainer.style.display = 'block';
             }
         });
     </script>
