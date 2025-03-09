@@ -617,7 +617,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="viewAllBooking.jsp">
                     <i class="ri-calendar-check-line"></i>
                     Booking Management
                 </a>

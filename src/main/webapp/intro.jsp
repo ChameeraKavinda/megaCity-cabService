@@ -171,7 +171,20 @@
         <h2>Reliable Rides, Anytime, Anywhere!</h2>
        <br> <p>Experience hassle-free, safe, and comfortable rides with Mega City Cab Service. Whether you're commuting to work, heading to the airport, or exploring the city, our professional drivers and well-maintained vehicles ensure a smooth journey. Book your ride now and travel with confidence!</p>
        
-       <br><br><br><br> <a href="View/customerRegister.jsp" class="cta-btn">Book Your Ride Now <i class="ri-arrow-right-double-line" style="font-size: 30px;"></i></a>
+       <br><br><br><br>
+		<%
+   			 Customer registerCustomer = (Customer) session.getAttribute("customer");
+    		if (registerCustomer != null) {
+		%>
+        	<a href="View/bookVehicle.jsp?customerId=<%= registerCustomer.getCustomerId() %>" class="cta-btn">Book Your Ride Now <i class="ri-arrow-right-double-line" style="font-size: 30px;"></i></a>
+		<%
+    	} else {
+		%>
+        	
+        	<a href="View/customerRegister.jsp" class="cta-btn">Book Your Ride Now <i class="ri-arrow-right-double-line" style="font-size: 30px;"></i></a>
+		<%
+   		 }
+		%>
     </div>
     <div class="taxi-image">
         <img src="Images/Yellowcar.png" alt="Taxi Image">

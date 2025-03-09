@@ -6,7 +6,7 @@
     
     <title>Admin Login</title>
     <style>
-/* Reset and base styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +23,6 @@ body {
     padding: 20px;
 }
 
-/* Container styles */
 .container {
     display: flex;
     width: 100%;
@@ -34,7 +33,6 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Image section */
 .image-section {
     width: 50%;
     position: relative;
@@ -52,13 +50,11 @@ body {
     transform: scale(1.05);
 }
 
-/* Form section */
 .form-section {
     width: 50%;
     padding: 48px;
 }
 
-/* Back button */
 .back-button {
             color: white;
             background: hsl(220, 24%, 15%);
@@ -76,7 +72,6 @@ body {
     color: white;
 }
 
-/* Typography */
 h2 {
     font-size: 32px;
     color: #333;
@@ -89,7 +84,6 @@ p {
     margin-bottom: 32px;
 }
 
-/* Form elements */
 .form-group {
     margin-bottom: 24px;
 }
@@ -115,7 +109,6 @@ input:focus {
     box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
 }
 
-/* Links */
 .forgot-password {
     display: block;
     text-align: right;
@@ -130,7 +123,6 @@ input:focus {
     color: hsl(220, 24%, 15%);
 }
 
-/* Buttons */
 .submit-button {
     width: 100%;
     background: #ffd700;
@@ -154,7 +146,6 @@ input:focus {
     color: white;
 }
 
-/* Divider */
 .divider {
     text-align: center;
     margin: 32px 0;
@@ -186,7 +177,6 @@ input:focus {
     font-size: 14px;
 }
 
-/* Social icons */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -195,7 +185,7 @@ input:focus {
 }
 
 .social-icons a {
-    text-decoration: none; /* Removes underline */
+    text-decoration: none; 
     font-size: 24px;
     color: #333;
     transition: color 0.3s;
@@ -207,7 +197,6 @@ input:focus {
     border-radius: 50%;
 }
 
-/* Error message */
 .error-message {
     margin-top: 16px;
     padding: 12px;
@@ -217,7 +206,6 @@ input:focus {
     color: #e53e3e;
 }
 
-/* Sign up link */
 .signup-link {
     text-align: center;
     margin-top: 24px;

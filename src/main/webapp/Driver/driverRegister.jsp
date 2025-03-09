@@ -146,7 +146,7 @@
 
 <body>
 <div class="signup-container">
-        <button class="back-button" onclick="window.location.href='<%= request.getContextPath() %>/intro.jsp'">
+        <button class="back-button" onclick="history.back()">
             <i class="ri-arrow-left-s-line"></i>
         </button>
         <h1>Signup to drive with Mega City Cab</h1>

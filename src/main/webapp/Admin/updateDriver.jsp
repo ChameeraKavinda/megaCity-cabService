@@ -135,8 +135,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" value="<%= driver.getPassword() %>" required>
+                    <input type="hidden" id="password" name="password" value="<%= driver.getPassword() %>" required>
                 </div>
 
                 <div class="form-group">

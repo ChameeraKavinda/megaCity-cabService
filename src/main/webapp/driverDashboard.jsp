@@ -17,10 +17,13 @@
       <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
       <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="CSS/style1.css">
+      <link rel="stylesheet" href="CSS/driver.css">
       <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
     
+    .container h2{
+    color: red;
+    font-size: 35px;}
     #viewBooking {
         font-family: 'Roboto', sans-serif;
         max-width: 1200px;
@@ -101,19 +104,24 @@
         color: hsl(220, 24%, 15%);
     }
     
-    .booking-status {
-        font-size: 13px;
-        font-weight: 500;
-        color:hsl(220, 24%, 15%);
-    }
+   .booking-status {
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    background-color: green;
+    border-radius: 50px; 
+    padding: 5px 15px; 
+    display: inline-block; 
+}
+
     
     .booking-details {
         padding: 12px 15px;
-        /* Fixed height for consistent card sizing */
+      
         min-height: 240px;
     }
     
-    /* Ensure consistent height for all detail items */
+    
     .detail-item {
         display: flex;
         align-items: flex-start;
@@ -208,12 +216,16 @@
         margin-bottom: 0;
     }
     
-    .booking-actions {
-        display: flex;
-        gap: 10px;
-        padding: 12px 15px;
-        border-top: 1px solid #f0f0f0;
-    }
+   .booking-actions {
+    display: flex;          
+    justify-content: center; 
+    align-items: center;     
+    gap: 10px;
+    padding: 12px 15px;
+    border-top: 1px solid #f0f0f0;
+    width: 100%;            
+}
+
     
     .update-btn, .print-btn {
         flex: 1;
@@ -361,7 +373,7 @@
                <ul class="nav__list">
                   <li><a href="#" class="nav__link">Home</a></li>
 
-                  <li><a href="Driver/viewRideHistory.jsp?driverId=<%= driverId %>" class="nav__link">View Booking</a></li>
+                  <li><a href="Driver/viewRideHistory.jsp?driverId=<%= driverId %>" class="nav__link"> Ride History</a></li>
 
                   <!--=============== DROPDOWN 1 ===============-->
                   <li class="dropdown__item">
@@ -451,7 +463,7 @@
                      </ul>
                   </li>
 
-                  <li><a href="#" class="nav__link">Contact Us</a></li>
+                  <li><a href="#feedback" class="nav__link">Contact Us</a></li>
                   <li><a href="Driver/driverLogout.jsp" class="nav__link">Logout</a></li>
                   
                </ul>
@@ -493,14 +505,16 @@
     <div class="overlay"></div>
     <div class="info-container">
         <h2>Hello, <br> <%= (driver != null) ? driver.getName() : "Driver not found" %>!</h2>
+        <br><br><br>
         <p>Experience hassle-free, safe, and comfortable rides with Mega City Cab Service...</p>
-        <a href="#viewBooking" class="cta-btn">View Your Ride</a>
+        <br><br><br><br>
+        <a href="#viewBooking" class="cta-btn">View Your New Ride<i class="ri-arrow-right-double-line" style="font-size: 30px;"></i></a>
     </div>
     
     
 </div >
 <div id="viewBooking"></div>
-<br><br><br>
+<br>
 
 <%
     if (driverId > 0) {
@@ -639,15 +653,11 @@
             </div>
             
             <div class="booking-actions">
-                <form action="<%= request.getContextPath() %>/Booking/updateBooking.jsp" method="GET">
-                    <input type="hidden" name="bookingId" value="<%= rs.getInt("bookingId") %>">
-                    <button type="submit" class="update-btn">
-                        <i class="ri-edit-line"></i> Update
-                    </button>
-                </form>
-                <button class="print-btn" onclick="printBookingDetails(<%= rs.getInt("bookingId") %>)">
-                    <i class="ri-printer-line"></i> Print
-                </button>
+                <form action="<%= request.getContextPath() %>/Booking/updateBooking.jsp" method="GET" style="display:inline;">
+                  		  <input type="hidden" name="bookingId" value="<%= rs.getInt("bookingId") %>">
+                    		<button type="submit" class="action-btn update-btn">Start Ride</button>
+                			</form>
+                
             </div>
              
         </div>
@@ -727,11 +737,14 @@
 </script>
 
 <div style="display: flex; justify-content: flex-end; padding: 10px; margin-right: 12%;">
-    <button class="btn" 
-        onclick="window.location.href='Driver/viewRideHistory.jsp?driverId=<%= driverId %>'"
-        style="font-size: 15px; padding: 8px 20px; width: 100px; height: 30px;">
-        See all
-    </button>
+ <a href="Driver/viewRideHistory.jsp?driverId=<%= driverId %>" 
+   style="font-size: 20px; display: inline-block; text-align: center; color: black; text-decoration: none;"
+   onmouseover="this.style.color='blue';" 
+   onmouseout="this.style.color='black';">
+   See all
+</a>
+
+
 </div>
 
 
@@ -817,8 +830,7 @@
             <i class="ri-whatsapp-line whatsapp" ></i>
             <i class="ri-facebook-circle-line facebook"></i>
             <i class="ri-youtube-line youtube" ></i>
-               <!-- <a href="#"><img src="Pic/youtubeLogo.png" alt="youtube"></a>
-               <a href="#"><img src="Pic/tiktokLogo.png" alt="tiktok"></a> -->
+               
            </div>
 
            

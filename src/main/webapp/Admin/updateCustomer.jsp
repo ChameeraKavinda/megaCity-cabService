@@ -155,8 +155,8 @@
                         <input type="email" name="email" value="<%= customer.getEmail() %>" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" value="<%= customer.getPassword() %>" required>
+                     
+                        <input type="hidden" name="password" value="<%= customer.getPassword() %>" required>
                     </div>
                     <div class="form-group">
                         <label for="nicNumber">NIC Number</label>

@@ -488,8 +488,9 @@
         
         <div class="step">
              <h2><i class="ri-login-box-line"></i> Step 5: Click the Book  button.</h2>
-            <p>Click the "Book Management" button and You can see a drop menu, Clicked <b>"Book"</b> button and  you will be taken to the "You can choose a vehicle" page.!</p>
-			<img src="<%= request.getContextPath() %>/View/img/Booking.jpg" alt="Booking">
+            <p>Click the "Book Management" button and You can see a drop menu, Clicked <b>"Book"</b> button or Clicked <b>"Book a ride Now"</b> ,  you will be taken to the "You can choose a vehicle" page.!</p>
+			<p><b>Option 01</b></p><img src="<%= request.getContextPath() %>/View/img/Booking.jpg" alt="Booking"><br><br>
+           <p><b>Option 02</b></p><img src="<%= request.getContextPath() %>/View/img/Register2.jpg" alt="Register2">
         </div>
         
         <div class="step">

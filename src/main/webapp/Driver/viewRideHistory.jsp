@@ -18,7 +18,275 @@
 
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="style1.css">
-
+ <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+    
+    .container {
+        font-family: 'Roboto', sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 25px;
+        margin-bottom: 30px;
+       padding-top: 55px;
+    }
+    
+    .booking-title {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    
+    .booking-title i {
+        margin-right: 10px;
+        color: hsl(220, 24%, 15%);
+    }
+    
+    .card-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding: 5px 0;
+        scrollbar-width: thin;
+        scrollbar-color: #ddd #f5f5f5;
+    }
+    
+    .card-container::-webkit-scrollbar {
+        height: 5px;
+    }
+    
+    .card-container::-webkit-scrollbar-thumb {
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+    
+    .card-container::-webkit-scrollbar-track {
+        background: #f5f5f5;
+    }
+    
+    .booking-card {
+        flex: 0 0 auto;
+        width: 300px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+        scroll-snap-align: start;
+        overflow: hidden;
+        transition: all 0.2s ease;
+    }
+    
+    .booking-card:hover {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    }
+    
+    .booking-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+        border-bottom: 1px solid #f0f0f0;
+        background-color: #f9f9f9;
+    }
+    
+    .booking-date {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        color: #555;
+    }
+    
+    .booking-date i {
+        margin-right: 5px;
+        color: hsl(220, 24%, 15%);
+    }
+    
+    .booking-status {
+        font-size: 13px;
+        font-weight: 500;
+        color:hsl(220, 24%, 15%);
+    }
+    
+    .booking-details {
+        padding: 12px 15px;
+        /* Fixed height for consistent card sizing */
+        min-height: 240px;
+    }
+    
+    /* Ensure consistent height for all detail items */
+    .detail-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        min-height: 30px;
+    }
+    
+    .detail-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .detail-item i {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        color: hsl(220, 24%, 15%);
+        font-size: 16px;
+    }
+    
+    .location-icon {
+        color: #EF4444 !important;
+    }
+    
+    .detail-content {
+        flex: 1;
+        overflow: hidden; /* Ensures content doesn't overflow */
+    }
+    
+    .detail-label {
+        display: block;
+        font-size: 12px;
+        color: #6B7280;
+        margin-bottom: 2px;
+    }
+    
+    .detail-value {
+        font-size: 13px;
+        color: #111827;
+        line-height: 1.4;
+    }
+    
+    /* Truncate long text with ellipsis */
+    .truncate-text {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Show full text on hover */
+    .truncate-text:hover {
+        white-space: normal;
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 2px 4px;
+        border-radius: 2px;
+    }
+    
+    .booking-price {
+        padding: 12px 15px;
+        border-top: 1px dashed #e5e7eb;
+        background-color: #f9fafb;
+    }
+    
+    .price-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: #4B5563;
+        margin-bottom: 6px;
+    }
+    
+    .price-value {
+        font-weight: 500;
+        text-align: right;
+    }
+    
+    .price-divider {
+        margin: 8px 0;
+        border: 0;
+        border-top: 1px dashed #e5e7eb;
+    }
+    
+    .price-row.total {
+        font-weight: 600;
+        color: #111827;
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+    
+    .booking-actions {
+        display: flex;
+        gap: 10px;
+        padding: 12px 15px;
+        border-top: 1px solid #f0f0f0;
+    }
+    
+    .update-btn, .print-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+    
+    .update-btn {
+        background-color: hsl(220, 24%, 15%);
+        color: white;
+    }
+    
+    .update-btn:hover {
+        background-color: #3C5BB8;
+    }
+    
+    .print-btn {
+        background-color: #f5f5f5;
+        color: #666;
+    }
+    
+    .print-btn:hover {
+        background-color: #e0e0e0;
+    }
+    
+    .update-btn i, .print-btn i {
+        margin-right: 5px;
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 40px 0;
+    }
+    
+    .empty-state i {
+        font-size: 50px;
+        color: #D1D5DB;
+        margin-bottom: 15px;
+    }
+    
+    .empty-state h3 {
+        font-size: 16px;
+        color: #4B5563;
+        margin-bottom: 8px;
+    }
+    
+    .empty-state p {
+        font-size: 14px;
+        color: #6B7280;
+    }
+    
+    @media (max-width: 640px) {
+        .card-container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        
+        .booking-card {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+    }
+</style>
       <title>Mega City Cab Service</title>
    </head>
    <body>
@@ -77,9 +345,10 @@
        <header class="header">
          <nav class="nav container">
             <div class="nav__data">
-               <a href="#" class="nav__logo">
-                  <i class="ri-car-fill" style="margin-right: 10px;font-size: 35px;"></i>City Mega Cab Servive
-               </a>
+               <a href="#" onclick="history.back()" class="nav__logo">
+    			<i class="ri-arrow-left-s-line" style="margin-right: 20px;font-size: 35px;color: white;"></i>
+    			<i class="ri-car-fill" style="margin-right: 10px;font-size: 35px;"></i>City Mega Cab Service
+			</a>
                
                <div class="nav__toggle" id="nav-toggle">
                   <i class="ri-menu-3-line nav__burger"></i>
@@ -239,30 +508,12 @@
                 stmt.setInt(1, driverId);
                 rs = stmt.executeQuery();
 %>
-
+<br><br><br><br>
 <!-- Booking Table -->
-<div class="container" id="viewBooking">
-    <h2>Your Bookings</h2>
-   <table border="1">
-    <thead>
-        <tr>
-            <th>Booking ID</th>
-            <th>Booking Date</th>
-            <th>Pickup Location</th>
-            <th>Drop Location</th>
-            <th>Distance (km)</th>
-            <th>Price (LKR)</th>
-            <th>Tax Fee (LKR)</th>
-            <th>Discount Fee (LKR)</th>
-            <th>Total Price (LKR)</th>
-            <th>Status</th>
-            <th>Customer Name</th>
-            <th>Customer Phone Number</th> <!-- New column for Customer Phone Number -->
-            <th>Vehicle Type</th>
-        </tr>
-    </thead>
-   <tbody>
-    <%
+<div class="container" >
+    <h2 class="booking-title"><i class="ri-calendar-check-line"></i> Your Ride History</h2>
+    <div class="card-container" id="cardContainer">
+       <%
         while (rs.next()) {
             int customerId = rs.getInt("customerId");
             int vehicleId = rs.getInt("vehicleId");
@@ -271,6 +522,9 @@
             String customerName = "Unknown";
             String customerPhone = "Unknown";  // New variable for customer phone
             String vehicleType = "Unknown";
+            String bookingStatus = rs.getString("bookingStatus");
+            String statusIcon = "";
+            String statusClass = "";
 
             // Fetch customer details (name and phone number)
             PreparedStatement customerStmt = conn.prepareStatement("SELECT name, phoneNumber FROM customer WHERE customerId = ?");
@@ -293,48 +547,184 @@
             vehicleRs.close();
             vehicleStmt.close();
     %>
-        <tr>
-            <td><%= rs.getInt("bookingId") %></td>
-            <td><%= rs.getString("bookingDate") %></td>
-            <td><%= rs.getString("pickupLocation") %></td>
-            <td><%= rs.getString("dropLocation") %></td>
-            <td><%= rs.getDouble("distance") %></td>
-            <td><%= rs.getDouble("price") %></td>
-            <td><%= rs.getInt("tax") %></td>
-            <td><%= rs.getInt("discount") %></td>
-            <td><%= rs.getInt("totalPrice") %></td>
-            <td><%= rs.getString("bookingStatus") %></td>
-            <td><%= customerName %></td>
-            <td><%= customerPhone %></td> <!-- Display Customer Phone Number -->
-            <td><%= vehicleType %></td>
-            <td class="action-cell">
-                <form action="<%= request.getContextPath() %>/Booking/updateBooking.jsp" method="GET" style="display:inline;">
+    <div class="booking-card">
+            <div class="booking-header">
+                <div class="booking-date">
+                    <i class="ri-calendar-line"></i> <%= rs.getString("bookingDate") %>
+                </div>
+                <div class="booking-status">
+                    <%= bookingStatus %>
+                </div>
+            </div>
+            
+            <div class="booking-details">
+             <div class="detail-item">
+                   <i class="ri-price-tag-3-line"></i>
+                    <div class="detail-content">
+                        <span class="detail-label">Booking Id:</span>
+                        <span class="detail-value truncate-text"><%= rs.getString("bookingId") %></span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="ri-map-pin-line location-icon"></i>
+                    <div class="detail-content">
+                        <span class="detail-label">Pickup</span>
+                        <span class="detail-value truncate-text"><%= rs.getString("pickupLocation") %></span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="ri-pin-distance-line location-icon"></i>
+                    <div class="detail-content">
+                        <span class="detail-label">Drop</span>
+                        <span class="detail-value truncate-text"><%= rs.getString("dropLocation") %></span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="ri-route-line"></i>
+                    <div class="detail-content">
+                        <span class="detail-label">Distance</span>
+                        <span class="detail-value"><%= rs.getDouble("distance") %> km</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="ri-car-line"></i>
+                    <div class="detail-content">
+                        <span class="detail-label">Vehicle</span>
+                        <span class="detail-value"><%= vehicleType %></span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="ri-user-3-line"></i>
+                    <div class="detail-content">
+                        <span class="detail-label">Customer</span>
+                        <span class="detail-value truncate-text"><%= customerName %></span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="ri-phone-line"></i>
+                    <div class="detail-content">
+                        <span class="detail-label">Phone</span>
+                        <span class="detail-value"><%= customerPhone %></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="booking-price">
+                <div class="price-row">
+                    <span>Base Price</span>
+                    <span class="price-value">LKR <%= rs.getDouble("price") %></span>
+                </div>
+                <div class="price-row">
+                    <span>Tax Fee</span>
+                    <span class="price-value">LKR <%= rs.getInt("tax") %></span>
+                </div>
+                <div class="price-row">
+                    <span>Discount</span>
+                    <span class="price-value">-LKR <%= rs.getInt("discount") %></span>
+                </div>
+                <hr class="price-divider">
+                <div class="price-row total">
+                    <span>Total</span>
+                    <span class="price-value">LKR <%= rs.getInt("totalPrice") %></span>
+                </div>
+            </div>
+            
+            <div class="booking-actions">
+                <form action="<%= request.getContextPath() %>/Booking/updateBooking.jsp" method="GET">
                     <input type="hidden" name="bookingId" value="<%= rs.getInt("bookingId") %>">
-                    <button type="submit" class="action-btn update-btn">Update</button>
+                    <button type="submit" class="update-btn">
+                        <i class="ri-edit-line"></i> Update
+                    </button>
                 </form>
-            </td>
-        </tr>
-    <% } %>
-</tbody>
-
-    </table>
+                <button class="print-btn" onclick="printBookingDetails(<%= rs.getInt("bookingId") %>)">
+                    <i class="ri-printer-line"></i> Print
+                </button>
+            </div>
+             
+        </div>
+        
+        <% } %>
+      
+    </div>
+    
+    <div class="empty-state" id="emptyState" style="display: none;">
+        <i class="ri-calendar-todo-line"></i>
+        <h3>No Bookings Found</h3>
+        <p>You don't have any bookings yet. Create a new booking to get started.</p>
+    </div>
 </div>
+<script>
+    const bookingWrapper = document.querySelector(".booking-wrapper");
+    const bookingCards = document.getElementById("bookingCards");
+    let isDragging = false;
+    let startX, scrollLeft;
 
-<%
+    bookingWrapper.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.pageX - bookingWrapper.offsetLeft;
+        scrollLeft = bookingWrapper.scrollLeft;
+        bookingWrapper.style.cursor = "grabbing";
+    });
+
+    bookingWrapper.addEventListener("mouseleave", () => {
+        isDragging = false;
+        bookingWrapper.style.cursor = "grab";
+    });
+
+    bookingWrapper.addEventListener("mouseup", () => {
+        isDragging = false;
+        bookingWrapper.style.cursor = "grab";
+    });
+
+    bookingWrapper.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - bookingWrapper.offsetLeft;
+        const walk = (x - startX) * 2;
+        bookingWrapper.scrollLeft = scrollLeft - walk;
+    });
+
+    // Add touch support for mobile
+    bookingWrapper.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].pageX - bookingWrapper.offsetLeft;
+        scrollLeft = bookingWrapper.scrollLeft;
+    });
+
+    bookingWrapper.addEventListener("touchmove", (e) => {
+        if (e.touches.length !== 1) return;
+        const x = e.touches[0].pageX - bookingWrapper.offsetLeft;
+        const walk = (x - startX) * 2;
+        bookingWrapper.scrollLeft = scrollLeft - walk;
+        e.preventDefault(); // Prevent page scrolling while dragging
+    });
+</script>
+
+
+    <%
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Debugging
+            e.printStackTrace();
         } finally {
-            if (rs != null) try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
-            if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
-            if (conn != null) try { conn.close(); } catch (Exception e) { e.printStackTrace(); }
+            if (rs != null) try { rs.close(); } catch (Exception e) {}
+            if (stmt != null) try { stmt.close(); } catch (Exception e) {}
+            if (conn != null) try { conn.close(); } catch (Exception e) {}
         }
     } else {
 %>
-    <p>No valid driver ID provided. Cannot fetch bookings.</p>
+    <p>No valid customer ID provided. Cannot fetch bookings.</p>
 <%
     }
 %>
+    
+
+
+
 <footer class="footer" id="contact">
    <div class="section_container footer_container">
        <div class="footer_col">

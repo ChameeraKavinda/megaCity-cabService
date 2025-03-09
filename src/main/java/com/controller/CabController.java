@@ -51,11 +51,11 @@ public class CabController extends HttpServlet {
 
         File fileSaveDir = new File(savePath);
         if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdir(); // Create directory if not exists
+            fileSaveDir.mkdir(); 
         }
 
         String filePath = savePath + File.separator + fileName;
-        filePart.write(filePath); // Save file to server
+        filePart.write(filePath); 
 
         // Save relative path in database
         String dbFilePath = UPLOAD_DIRECTORY + "/" + fileName;

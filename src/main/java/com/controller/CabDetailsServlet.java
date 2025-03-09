@@ -48,15 +48,15 @@ public class CabDetailsServlet extends HttpServlet {
                 request.setAttribute("carModel", rs.getString("carModel"));
                 request.setAttribute("isAC", rs.getBoolean("isAC") ? "AC" : "Non-AC");
                 request.setAttribute("rate", rs.getDouble("rate"));
-                request.setAttribute("cabId", cabId);  // Set the cabId here
+                request.setAttribute("cabId", cabId);  
                 request.setAttribute("cabFound", true);
             } else {
                 request.setAttribute("error", "No cab details found for ID: " + cabId);
-                request.setAttribute("cabFound", false); // explicitly set cabFound to false
+                request.setAttribute("cabFound", false); 
             }
         } catch (Exception e) {
             request.setAttribute("error", "Database error: " + e.getMessage());
-            request.setAttribute("cabFound", false); // explicitly set cabFound to false on error
+            request.setAttribute("cabFound", false); 
         }
 
         forwardToCabDetailsPage(request, response);
