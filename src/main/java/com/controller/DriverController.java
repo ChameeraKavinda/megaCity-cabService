@@ -51,7 +51,7 @@ public class DriverController extends HttpServlet {
 	        String password =request.getParameter("password");
 	        String nic = request.getParameter("nic");
 	        String phoneNumber = request.getParameter("phoneNumber");
-	        String gender = request.getParameter("gender");
+	        String availability = request.getParameter("availability");
 
 
 	        // Debugging: Print values to check if phoneNumber is null
@@ -60,7 +60,7 @@ public class DriverController extends HttpServlet {
 	        System.out.println("Password : " + password);
 	        System.out.println("NIC: " + nic);
 	        System.out.println("Phone Number: " + phoneNumber);
-	        System.out.println("Gender: " + gender);
+	        System.out.println("Availability: " + availability);
 
 
 	        // If phoneNumber is null, return an error message
@@ -69,7 +69,7 @@ public class DriverController extends HttpServlet {
 	            return;
 	        }
 
-	        Driver driver = new Driver(0, name,email,password, nic, phoneNumber,gender);
+	        Driver driver = new Driver(0, name,email,password, nic, phoneNumber,availability);
 	        boolean isRegistered = driverService.registerDriver(driver);
 
 	        if (isRegistered) {
@@ -80,7 +80,7 @@ public class DriverController extends HttpServlet {
 
 	    } catch (Exception e) {
 	        response.getWriter().write("Error: " + e.getMessage());
-	        e.printStackTrace();  // Print the stack trace for debugging
+	        e.printStackTrace();  
 	    }
 	}
 

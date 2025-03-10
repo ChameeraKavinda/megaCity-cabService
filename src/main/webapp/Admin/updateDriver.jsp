@@ -149,11 +149,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="gender">Gender</label>
-                    <select id="gender" name="gender" required>
+                    <label for="availability">Avilability</label>
+                    <select id="availability" name="availability" required>
                         <option value="">Select an option</option>
-                        <option value="Male" <%= driver.getGender().equals("Male") ? "selected" : "" %>>Male</option>
-                        <option value="Female" <%= driver.getGender().equals("Female") ? "selected" : "" %>>Female</option>
+                        <option value="Available" <%= driver.getAvailability().equals("Available") ? "selected" : "" %>>Available</option>
+                        <option value="NotAvailable" <%= driver.getAvailability().equals("NotAvailable") ? "selected" : "" %>>Not Available</option>
                     </select>
                 </div>
 

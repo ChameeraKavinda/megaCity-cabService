@@ -19,7 +19,7 @@ public class DriverDOA {
 			System.out.println("Database connection is null. Check your JDBC setup.");
             return false;
 		}
-		 String query = "INSERT INTO driver (name,email,password,nic,phoneNumber,gender) VALUES (?,?,?,?,?,?)";
+		 String query = "INSERT INTO driver (name,email,password,nic,phoneNumber,availability) VALUES (?,?,?,?,?,?)";
 		    try (
 		         PreparedStatement statement = connection.prepareStatement(query)) {
 
@@ -28,7 +28,7 @@ public class DriverDOA {
 		        statement.setString(3, driver.getPassword());
 		        statement.setString(4, driver.getNic());
 		        statement.setString(5, driver.getPhoneNumber());
-		        statement.setString(6, driver.getGender());
+		        statement.setString(6, driver.getAvailability());
 
 		        int rowsInserted = statement.executeUpdate();
 		        return rowsInserted > 0; 
@@ -57,7 +57,7 @@ public class DriverDOA {
                     resultSet.getString("password"),
                     resultSet.getString("nic"),
                     resultSet.getString("phoneNumber"),
-                    resultSet.getString("gender")
+                    resultSet.getString("availability")
 
                 );
             }
@@ -86,7 +86,7 @@ public class DriverDOA {
 	                     resultSet.getString("password"),
 	                     resultSet.getString("nic"),
 	                     resultSet.getString("phoneNumber"),
-	                     resultSet.getString("gender")
+	                     resultSet.getString("availability")
 
 	            );
 	        }
@@ -114,7 +114,7 @@ public class DriverDOA {
                 		 rs.getString("password"),
                 		 rs.getString("nic"),
                 		 rs.getString("phoneNumber"),
-                		 rs.getString("gender")
+                		 rs.getString("availability")
                 );
             }
         } catch (SQLException e) {
@@ -162,11 +162,11 @@ public class DriverDOA {
 	        	String password=resultSet.getString("password");
 	        	String nic=resultSet.getString("nic");
 	        	String phoneNumber=resultSet.getString("phoneNumber");
-	        	String gender=resultSet.getString("gender");
+	        	String availability=resultSet.getString("availability");
 	        	
 	           
 
-	        	driverList.add(new Driver(id, name, email, password, nic, phoneNumber, gender)); 
+	        	driverList.add(new Driver(id, name, email, password, nic, phoneNumber, availability)); 
 	        }
 	    }
 	    return driverList;
@@ -181,7 +181,7 @@ public class DriverDOA {
 
             statement.setInt(1, driverId);
             int rowsDeleted = statement.executeUpdate();
-            return rowsDeleted > 0; // ✅ Returns true if a row is deleted
+            return rowsDeleted > 0; 
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -192,7 +192,7 @@ public class DriverDOA {
     
  // **Update Customer**
     public boolean updateDriver(Driver driver) {
-        String query = "UPDATE driver SET name=?, email=?, password=?, nic=?,phoneNumber=?, gender=? WHERE driverId=?";
+        String query = "UPDATE driver SET name=?, email=?, password=?, nic=?,phoneNumber=?, availability=? WHERE driverId=?";
         try (Connection connection = DBConnectionFactory.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
 
@@ -201,7 +201,7 @@ public class DriverDOA {
             statement.setString(3, driver.getPassword());
             statement.setString(4, driver.getNic());
             statement.setString(5, driver.getPhoneNumber());
-            statement.setString(6, driver.getGender());  
+            statement.setString(6, driver.getAvailability());  
             statement.setInt(7, driver.getDriverId());
 
 

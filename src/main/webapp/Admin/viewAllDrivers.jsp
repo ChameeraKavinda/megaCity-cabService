@@ -679,7 +679,7 @@ DriverDOA driverDOA = new DriverDOA();
             						<th>Driver Password</th>
             						<th>Driver NIC Number</th>
             						<th>Driver Phone Number</th>
-            						<th>Gender</th>
+            						<th>Availability </th>
             						<th>Action</th>
                                 </tr>
                             </thead>
@@ -693,8 +693,8 @@ DriverDOA driverDOA = new DriverDOA();
                 <td><%= driver.getNic()%></td>
                 <td><%= driver.getPhoneNumber() %></td>
                 <td>
-                   <span class="badge <%= driver.getGender().equals("Male") ? "badge-success" : "badge-warning" %>">
-                                        <%= driver.getGender() %>
+                   <span class="badge <%= driver.getAvailability().equals("Available") ? "badge-success" : "badge-warning" %>">
+                                        <%= driver.getAvailability() %>
                    </span>
                  </td>
                 
@@ -721,8 +721,8 @@ DriverDOA driverDOA = new DriverDOA();
                             <div class="mobile-card">
                                 <div class="mobile-card-header">
                                     <div class="mobile-card-title"><%= driver.getName() %></div>
-                                   <span class="badge <%= driver.getGender().equals("Male") ? "badge-success" : "badge-warning" %>">
-                                        <%= driver.getGender() %>
+                                   <span class="badge <%= driver.getAvailability().equals("Available") ? "badge-success" : "badge-warning" %>">
+                                        <%= driver.getAvailability() %>
                                     </span>
                                 </div>
                                 <div class="mobile-card-row">

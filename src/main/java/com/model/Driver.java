@@ -7,17 +7,17 @@ public class Driver {
     private String password;
     private String nic;
     private String phoneNumber;
-    private String gender; // Added this field to match the form
+    private String availability; 
 
     // Constructor
-    public Driver(int driverId, String name, String email, String password,  String nic, String phoneNumber, String gender) {
+    public Driver(int driverId, String name, String email, String password,  String nic, String phoneNumber, String availability) {
         this.driverId = driverId;
         this.name = name;
         this.email = email;
         this.password = password;
         this.nic = nic;
         this.phoneNumber = phoneNumber;
-        this.gender = gender;
+        this.availability = availability;
     }
 
 	public int getDriverId() {
@@ -68,13 +68,13 @@ public class Driver {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getGender() {
-		return gender;
+	public String getAvailability() {
+		return availability;
 	}
 
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setGender(String availability) {
+		this.availability = availability;
 	}
 
 	

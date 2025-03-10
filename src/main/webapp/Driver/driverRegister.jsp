@@ -183,11 +183,11 @@
            
     
             <div class="form-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
+                <label for="availability">Avilability</label>
+                <select id="availability" name="availability" required>
                     <option value="">Select an option</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="Available">Available</option>
+                    <option value="NotAvilable">Not Available</option>
                 </select>
             </div>
     

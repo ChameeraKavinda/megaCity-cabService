@@ -113,6 +113,25 @@ input[type="submit"]:hover {
     color: white;
 }
 
+.cancel-btn {
+    background-color:  hsl(220, 24%, 15%);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+    transition: background-color 0.2s;
+}
+
+.cancel-btn:hover {
+    background-color: gray;
+    color: black;
+}
+
 /* Price summary section */
 .price-summary {
     padding: 12px;
@@ -147,7 +166,6 @@ input[type="submit"]:hover {
     color: #2c3e50;
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
     body {
         padding: 8px;
@@ -176,6 +194,9 @@ input[type="submit"]:hover {
     
     input[type="submit"] {
         padding: 8px 14px;
+    }
+    .cancel-btn{
+     padding: 8px 14px;
     }
 }
     </style>
@@ -388,6 +409,18 @@ input[type="submit"]:hover {
         <input type="hidden" id="vehicleId" name="vehicleId" value="<%= vehicleId %>">
 
         <input type="submit" value="Confirm Booking">
+		<button class="cancel-btn">Cancel Booking</button>
+
+		<script>
+  				document.querySelector('.cancel-btn').addEventListener('click', function() {
+    
+    		alert('Booking has been canceled!');
+    
+    
+    		window.history.back();  
+  		});
+	</script>
+
     </form>
 </body>
 </html>

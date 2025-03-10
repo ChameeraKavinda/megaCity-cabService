@@ -52,13 +52,13 @@ public class DriverService {
         try {
         	Connection connection=DBConnectionFactory.getConnection();
     		
-            String query = "SELECT driverId FROM driver WHERE email = ?"; // Use 'driverId' instead of 'id'
+            String query = "SELECT driverId FROM driver WHERE email = ?"; 
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) {
-                driverId = rs.getInt("driverId"); // Fetch the correct column
+                driverId = rs.getInt("driverId"); 
             }
 
             rs.close();

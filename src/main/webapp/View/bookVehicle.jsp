@@ -9,6 +9,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+          <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    
     <title>Book a Vehicle</title>
     <style>
         .car-list { padding: 20px; background-color: #f8f9fa; }
@@ -47,11 +49,13 @@
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String[] categories = {"Mini", "Flex", "Car", "Van"};
+        String[] passengerCount = {"3", "4", "5", "8"};  
 
         try {
             conn = DBConnectionFactory.getConnection();
-            for (String category : categories) {
-                stmt = conn.prepareStatement("SELECT * FROM vehicle WHERE passenger_type = ?");
+            for (int i = 0; i < categories.length; i++) {
+                String category = categories[i];
+                stmt = conn.prepareStatement("SELECT vehicle.*, driver.availability FROM vehicle vehicle INNER JOIN driver driver ON vehicle.driverId = driver.driverId WHERE vehicle.passenger_type = ? AND driver.availability = 'Available'");
                 stmt.setString(1, category);
                 rs = stmt.executeQuery();
     %>
@@ -71,6 +75,7 @@
                 }
             %>
         </p>
+       
         <%
             boolean hasVehicles = false;
             while (rs.next()) {
@@ -85,9 +90,10 @@
 
             <p>Color: <%= rs.getString("vehicle_color") %></p>
             <h2><%= rs.getString("vehicle_type") %></h2>
-            <p>Vehicle Number: <%= rs.getString("license_number") %></p>
-            <p>Manufacture Year: <%= rs.getString("manufacture_date") %></p>
-            <p>AC/Non Ac: <%= rs.getString("isAC").equalsIgnoreCase("AC") ? "AC" : "NonAC" %></p>
+            <p><i class="ri-user-3-line"></i> <%= passengerCount[i] %> Passengers</p>
+            <p><i class="ri-car-line"></i> Vehicle Number: <%= rs.getString("license_number") %></p>
+            <p><i class="ri-calendar-check-line"></i> Manufacture Year: <%= rs.getString("manufacture_date") %></p>
+            <p><i class="ri-wireless-charging-line"></i>  <%= rs.getString("isAC").equalsIgnoreCase("AC") ? "AC" : "NonAC" %></p>
 
             <% Integer customerId = (Integer) session.getAttribute("customerId"); %>
             <a href="<%= request.getContextPath() %>/Booking/addBooking.jsp?vehicleId=<%= rs.getInt("id") %>&driverId=<%= rs.getInt("driverId") %>&customerId=<%= customerId %>&passengerType=<%= category %>" class="book-now">Book Now</a>

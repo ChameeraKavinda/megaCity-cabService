@@ -34,10 +34,10 @@ public class UpdateDriverServlet extends HttpServlet {
 	            String password = request.getParameter("password");
 	            String nic = request.getParameter("nic");
 	            String phoneNumber = request.getParameter("phoneNumber");
-	            String gender = request.getParameter("gender");
+	            String availability = request.getParameter("availability");
 
 	            // Create updated customer object
-	            Driver driver = new Driver(driverId, name, email, password, nic, phoneNumber, gender);
+	            Driver driver = new Driver(driverId, name, email, password, nic, phoneNumber, availability);
 
 	            // Update driver
 	            boolean isUpdated = driverService.updateDriver(driver);
