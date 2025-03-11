@@ -68,31 +68,9 @@
 
                   
                   
-                  <li class="dropdown__item">
-                     <div class="nav__link">
-                        Cabs & Drivers <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                     </div>
-
-                     <ul class="dropdown__menu">
-                        <li>
-                           <a href="View/login.jsp" class="dropdown__link">
-                              <i class="ri-pie-chart-line"></i> Manage Cars
-                           </a>                          
-                        </li>
-
-                        <li>
-                           <a href="Driver/driverRegister.jsp" class="dropdown__link">
-                              <i class="ri-arrow-up-down-line"></i> Driver Register
-                           </a>
-                        </li>
-
-                      
-                     </ul>
-                  </li>
+               <li><a href="#driver" class="nav__link">Careers</a></li>
                   
-                   <!--  <li><a href="#" class="nav__link">Billing</a></li>-->
 
-                  <!--=============== DROPDOWN 2 ===============-->
                   <li class="dropdown__item">
                      <div class="nav__link">
                         User <i class="ri-arrow-down-s-line dropdown__arrow"></i>
@@ -145,24 +123,24 @@
     	   const toggle = document.getElementById(toggleId),
            nav = document.getElementById(navId)
 
-     toggle.addEventListener('click', () =>{
-         nav.classList.toggle('show-menu')
+  		   toggle.addEventListener('click', () =>{
+     	    nav.classList.toggle('show-menu')
 
-         toggle.classList.toggle('show-icon')
-     })
-  }
+       		  toggle.classList.toggle('show-icon')
+   			  })
+ 		 }
 
-  showMenu('nav-toggle','nav-menu')
+ 			 showMenu('nav-toggle','nav-menu')
 
 
 
-  const menuBtn = document.querySelector('.nav__toggle');
-  const navLinks = document.querySelector('.nav-links');
+  		const menuBtn = document.querySelector('.nav__toggle');
+ 		 const navLinks = document.querySelector('.nav-links');
 
-  menuBtn.addEventListener('click', () => {
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-  });
-</script>
+  			menuBtn.addEventListener('click', () => {
+     		navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  			});
+	</script>
      
  
 <div class="hero">
@@ -191,58 +169,7 @@
     </div>
 </div>
 
-          <!--<button class="slide-btn prev">&#8249;</button>-->
-    <!--     <button class="slide-btn next">&#8250;</button>-->
-             <!--<div class="form-container">-->
-     <!--       <h2>Book Your Ride</h2>-->
-     <!--       <form action="/action_page.php">-->
-     <!--          <div style="display: flex;">-->
-     <!--             <label for="name">Name:</label>-->
-     <!--           <input type="text" id="name" name="name" placeholder="Enter your name">-->
-    
-     <!--           <label for="phone">Phone Number:</label>-->
-     <!--           <input type="text" id="phone" name="phone" placeholder="Enter your phone number">-->
-     <!--          </div>-->
-                
-    
-     <!--           <label for="email">Email:</label>-->
-     <!--           <input type="email" id="email" name="email" placeholder="Enter your email">-->
-    
-     <!--           <label for="pickup">Pickup Location:</label>-->
-     <!--           <input type="text" id="pickup" name="pickup" placeholder="Enter City, Airport, or Address">-->
-    
-     <!--           <label for="drop">Drop Location:</label>-->
-     <!--           <input type="text" id="drop" name="drop" placeholder="Enter City, Airport, or Address">-->
-    
-     <!--           <label for="date">Pickup Date:</label>-->
-     <!--           <input type="date" id="date" name="date">-->
-    
-     <!--           <label for="time">Pickup Time:</label>-->
-     <!--           <input type="time" id="time" name="time">-->
-    
-     <!--           <input type="submit" value="Book Now">-->
-     <!--       </form>-->
-     <!--   </div>-->
-         
- 
- 
-     <!-- <div class="search-container">
-         <div class="search-box">
-             <h2>Search Your <span>Best Cars.</span></h2>
-             <div class="search-grid">
-                 <input type="text" placeholder="Car Brand">
-                 <input type="text" placeholder="Car Type">
-                 <input type="text" placeholder="Price Range">
-                 <button class="search-btn">
-                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                         <circle cx="11" cy="11" r="8"></circle>
-                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                     </svg>
-                     SEARCH YOUR CAR
-                 </button>
-             </div>
-         </div>
-     </div> -->
+     
     <h1 class="one-way-title">One Way Cabs</h1>
 
 
@@ -269,7 +196,20 @@
             </div>
             <p class="min-charges"><%= rs.getString("description") %></p>
             <div class="buttons">
-			<a href="View/login.jsp" class="book-now">Book Now</a>
+            <%
+   			 Customer registeredCustomer = (Customer) session.getAttribute("customer");
+    		if (registeredCustomer != null) {
+				%>
+        	<a href="View/bookVehicle.jsp?customerId=<%= registeredCustomer.getCustomerId() %>" class="book-now">Book Now </a>
+				<%
+    			} else {
+				%>
+        	
+        			<a href="View/customerRegister.jsp" class="book-now">Book Now</a>
+				<%
+   				 }
+				%>
+			
 
 
 			<button class="call-now" onclick="window.location.href='callTo:94705220990';">
@@ -391,8 +331,8 @@
 
 
 
-<section class="driver-opportunities">
-    <div class="driver-content">
+<section class="driver-opportunities" id="driver">
+    <div class="driver-content" >
         <h2>Join MegaCity Cab Service as a Driver</h2>
         <p>Be part of Sri Lanka's growing transportation network. Drive with us and enjoy competitive earnings while providing essential services to your community.</p>
         
@@ -490,8 +430,7 @@
    
 </div>
 
-<script src="https://unpkg.com/scrollreveal"></script><!-- scrollreveal option js code -->
-      <!--=============== MAIN JS ===============-->
+<script src="https://unpkg.com/scrollreveal"></script>
 <script> </script>
    </body>
 </html>

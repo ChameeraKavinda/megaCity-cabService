@@ -37,7 +37,6 @@ public class BookingService {
 	        return bookingDAO.updateBooking(booking);
 	    }
 
-	    // **Delete Customer**
 	    public boolean deleteBooking(int bookingId) {
 	        return bookingDAO.deleteBooking(bookingId);
 	    }

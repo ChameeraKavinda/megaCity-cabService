@@ -7,12 +7,10 @@ public class CustomerService {
     private static CustomerService instance;
     private CustomerDOA customerDOA;
 
-    // Private constructor to enforce Singleton pattern
     public CustomerService() {
         this.customerDOA = new CustomerDOA();
     }
 
-    // Singleton Instance Getter
     public static CustomerService getInstance() {
         if (instance == null) {
             synchronized (CustomerService.class) {
@@ -24,7 +22,6 @@ public class CustomerService {
         return instance;
     }
 
-    // Method to register a customer
     public boolean registerCustomer(Customer customer) {
         boolean isRegistered = customerDOA.addCustomer(customer);
         if (!isRegistered) {
@@ -39,13 +36,14 @@ public class CustomerService {
     }
     
 
-    // **Update Customer Details**
     public boolean updateCustomer(Customer customer) {
         return customerDOA.updateCustomer(customer);
     }
 
-    // **Delete Customer**
     public boolean deleteCustomer(int customerId) {
         return customerDOA.deleteCustomer(customerId);
     }
+
+   
+
 }

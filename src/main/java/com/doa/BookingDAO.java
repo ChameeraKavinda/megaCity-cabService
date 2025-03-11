@@ -113,7 +113,7 @@ public class BookingDAO {
     }
     
 
-	// **Update Admin**
+	
     public boolean updateBooking(Booking booking) {
         String query = "UPDATE booking SET bookingDate=?, pickupLocation=?, dropLocation=?, distance=?, price=?, bookingStatus=?, customerId=?, driverId=?,  vehicleId=?, tax=?, discount=?, totalPrice=? WHERE bookingId=?";
         try (Connection connection = DBConnectionFactory.getConnection();
@@ -143,7 +143,7 @@ public class BookingDAO {
         return false;
     }
 
-    // **Delete Admin**
+    
     public boolean deleteBooking(int bookingId) {
         String query = "DELETE FROM booking WHERE bookingId=?";
         try (Connection connection = DBConnectionFactory.getConnection();

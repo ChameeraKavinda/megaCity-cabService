@@ -9,7 +9,7 @@ public class Driver {
     private String phoneNumber;
     private String availability; 
 
-    // Constructor
+  
     public Driver(int driverId, String name, String email, String password,  String nic, String phoneNumber, String availability) {
         this.driverId = driverId;
         this.name = name;

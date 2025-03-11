@@ -664,7 +664,7 @@ BookingDAO bookingDAO = new BookingDAO();
                 <div class="card-header">
                     <h3>Booking Details</h3>
                     <button class="action-button">
-                            <a href="<%= request.getContextPath() %>/Booking/addBooking.jsp"><i class="ri-user-add-line"></i> <span>Add New Booking</span></a>
+                            <a href="<%= request.getContextPath() %>/Admin/adminAddBooking.jsp"><i class="ri-user-add-line"></i> <span>Add New Booking</span></a>
                         
                     </button>
                 </div>

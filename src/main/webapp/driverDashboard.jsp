@@ -504,7 +504,10 @@
 <div class="hero">
     <div class="overlay"></div>
     <div class="info-container">
-        <h2>Hello, <br> <%= (driver != null) ? driver.getName() : "Driver not found" %>!</h2>
+		<%
+   		 Driver loggedDriver = (Driver) session.getAttribute("driver");
+			%>
+		<h2>Hello, <%= (loggedDriver != null) ? loggedDriver.getName() : "Driver" %></h2>
         <br><br><br>
         <p>Experience hassle-free, safe, and comfortable rides with Mega City Cab Service...</p>
         <br><br><br><br>
@@ -514,7 +517,7 @@
     
 </div >
 <div id="viewBooking"></div>
-<br>
+<br><br>
 
 <%
     if (driverId > 0) {
@@ -751,7 +754,7 @@
 
 <section class="driver-opportunities">
     <div class="driver-content">
-        <h2>Join MegaCity Cab Service as a Driver</h2>
+        <h2>Benefits of Registering as a Driver</h2>
         <p>Be part of Sri Lanka's growing transportation network. Drive with us and enjoy competitive earnings while providing essential services to your community.</p>
         
         <ul class="benefits-list">

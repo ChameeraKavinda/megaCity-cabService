@@ -97,7 +97,7 @@ public class DriverDOA {
 	}
 
 	
-	 // Method to fetch a driver by ID
+	 
     public Driver getDriverById(int driverId) {
         Driver driver = null;
         try (Connection connection = DBConnectionFactory.getConnection();
@@ -173,7 +173,7 @@ public class DriverDOA {
 	} 
 	
 	
-	// **Delete Customer**
+	
     public boolean deleteDriver(int driverId) {
         String query = "DELETE FROM driver WHERE driverId=?";
         try (Connection connection = DBConnectionFactory.getConnection();
@@ -190,7 +190,7 @@ public class DriverDOA {
     }
 
     
- // **Update Customer**
+ 
     public boolean updateDriver(Driver driver) {
         String query = "UPDATE driver SET name=?, email=?, password=?, nic=?,phoneNumber=?, availability=? WHERE driverId=?";
         try (Connection connection = DBConnectionFactory.getConnection();

@@ -9,8 +9,8 @@ import javax.mail.internet.*;
 public class EmailService {
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final String SMTP_PORT = "587";
-    private static final String SENDER_EMAIL = "chameeratest@gmail.com";  // Replace with your Gmail
-    private static final String SENDER_PASSWORD = "pvyz vkpf clva sftr"; // Replace with your App Password
+    private static final String SENDER_EMAIL = "chameeratest@gmail.com";  
+    private static final String SENDER_PASSWORD = "pvyz vkpf clva sftr"; 
 
     public static void sendEmail(String toEmail, String subject, String messageBody) {
         Properties props = new Properties();
@@ -32,7 +32,7 @@ public class EmailService {
             message.setFrom(new InternetAddress(SENDER_EMAIL));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
             message.setSubject(subject);
-//            message.setText(messageBody);
+
 
             Transport.send(message);
             System.out.println("Booking alert email sent successfully!");

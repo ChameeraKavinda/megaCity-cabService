@@ -115,7 +115,7 @@ public class AdminDOA {
     }
 	
 	
-	// **Update Admin**
+	
     public boolean updateAdmin(Admin admin) {
         String query = "UPDATE admin SET name=?, email=?, password=?, phoneNumber=?, role=? WHERE adminId=?";
         try (Connection connection = DBConnectionFactory.getConnection();
@@ -137,7 +137,7 @@ public class AdminDOA {
         return false;
     }
 
-    // **Delete Admin**
+    
     public boolean deleteAdmin(int adminId) {
         String query = "DELETE FROM admin WHERE adminId=?";
         try (Connection connection = DBConnectionFactory.getConnection();

@@ -4,7 +4,9 @@
     if (session1 != null) {
         session1.invalidate();
     }
+    response.sendRedirect(request.getContextPath() + "/index.jsp");
 %>
+
 <script>
     window.close(); 
 </script>

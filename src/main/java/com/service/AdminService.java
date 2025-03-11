@@ -26,7 +26,7 @@ public class AdminService {
 		return instance;
 	}
 	
-	// Method to register a admin
+	
     public boolean registerAdmin(Admin admin) {
         boolean isRegistered = adminDOA.addAdmin(admin);
         if (!isRegistered) {
@@ -40,12 +40,12 @@ public class AdminService {
 //        return adminDOA.authenticateAdmin(email, password);
 //    }
     
-    // **Update Admin Details**
+   
     public boolean updateAdmin(Admin admin) {
         return adminDOA.updateAdmin(admin);
     }
 
-    // **Delete Customer**
+   
     public boolean deleteAdmin(int adminId) {
         return adminDOA.deleteAdmin(adminId);
     }

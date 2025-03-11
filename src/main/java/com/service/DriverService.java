@@ -13,12 +13,10 @@ public class DriverService {
     private static DriverService instance;
     private DriverDOA driverDOA;
 
-    // Private constructor to enforce Singleton pattern
     public DriverService() {
         this.driverDOA = new DriverDOA();
     }
 
-    // Singleton Instance Getter
     public static DriverService getInstance() {
         if (instance == null) {
             synchronized (DriverService.class) {
@@ -30,7 +28,6 @@ public class DriverService {
         return instance;
     }
 
-    // Method to register a driver
     public boolean registerDriver(Driver driver) {
         boolean isRegistered = driverDOA.addDriver(driver);
         if (!isRegistered) {
@@ -48,7 +45,7 @@ public class DriverService {
     }
     
     public int getDriverIdByEmail(String email) {
-        int driverId = -1; // Default value in case not found
+        int driverId = -1; 
         try {
         	Connection connection=DBConnectionFactory.getConnection();
     		
@@ -69,12 +66,10 @@ public class DriverService {
         }
         return driverId;
     }
- // **Update Driver Details**
     public boolean updateDriver(Driver driver) {
         return driverDOA.updateDriver(driver);
     }
 
-    // **Delete Driver**
     public boolean deleteDriver(int driverId) {
         return driverDOA.deleteDriver(driverId);
     }

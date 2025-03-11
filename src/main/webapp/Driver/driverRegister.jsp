@@ -185,7 +185,6 @@
             <div class="form-group">
                 <label for="availability">Avilability</label>
                 <select id="availability" name="availability" required>
-                    <option value="">Select an option</option>
                     <option value="Available">Available</option>
                     <option value="NotAvilable">Not Available</option>
                 </select>
