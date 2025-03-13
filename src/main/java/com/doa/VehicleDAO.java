@@ -79,4 +79,40 @@ public class VehicleDAO {
         }
         return vehicles;
 }
+    
+    public boolean deleteVehicle(int vehicleId) {
+        String query = "DELETE FROM vehicle WHERE id = ?";
+        try (Connection connection = DBConnectionFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            
+            statement.setInt(1, vehicleId);
+            int rowsDeleted = statement.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean updateVehicle(Vehicle vehicle) {
+        String query = "UPDATE vehicle SET vehicle_type = ?, license_number = ?, vehicle_color = ?, manufacture_date = ?, isAC = ?, passenger_type = ?, image_path = ? WHERE id = ?";
+        try (Connection connection = DBConnectionFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            
+            statement.setString(1, vehicle.getVehicleType());
+            statement.setString(2, vehicle.getLicenseNumber());
+            statement.setString(3, vehicle.getVehicleColor());
+            statement.setString(4, vehicle.getManufactureDate());
+            statement.setString(5, vehicle.getIsAC());
+            statement.setString(6, vehicle.getPassengerType());
+            statement.setString(7, vehicle.getImagePath());
+            statement.setInt(8, vehicle.getId());
+            
+            int rowsUpdated = statement.executeUpdate();
+            return rowsUpdated > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

@@ -30,7 +30,7 @@ public class VehicleRegistrationController extends HttpServlet {
             String isAC = request.getParameter("isAC");
             String passengerType = request.getParameter("passengerType");
 
-            // Handle file upload
+            
             Part filePart = request.getPart("vehicleImage"); // Get the uploaded file
             String fileName = System.currentTimeMillis() + "_" + Paths.get(filePart.getSubmittedFileName()).getFileName().toString();  
             String uploadDir = getServletContext().getRealPath("/") + "Vehicleuploads";  

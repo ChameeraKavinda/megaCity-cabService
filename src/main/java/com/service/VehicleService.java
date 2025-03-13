@@ -36,4 +36,24 @@ public class VehicleService {
     public Vehicle getVehicleByDriverId(int driverId) {
         return vehicleDAO.getVehicleByDriverId(driverId);
     }
+    
+    public boolean deleteVehicle(int vehicleId) {
+        return vehicleDAO.deleteVehicle(vehicleId);
+    }
+    
+    public boolean updateVehicle(int vehicleId,int driverId, String vehicleType, String licenseNumber, String vehicleColor, 
+                                 String manufactureDate, String isAC, String passengerType, String imagePath) {
+        Vehicle vehicle = new Vehicle();
+        vehicle.setId(vehicleId);
+        vehicle.setDriverId(driverId);
+        vehicle.setVehicleType(vehicleType);
+        vehicle.setLicenseNumber(licenseNumber);
+        vehicle.setVehicleColor(vehicleColor);
+        vehicle.setManufactureDate(manufactureDate);
+        vehicle.setIsAC(isAC);
+        vehicle.setPassengerType(passengerType);
+        vehicle.setImagePath(imagePath);
+        
+        return vehicleDAO.updateVehicle(vehicle);
+    }
 }
