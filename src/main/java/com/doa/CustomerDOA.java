@@ -91,7 +91,7 @@ public class CustomerDOA {
         return null; 
     }
 	
-	  // Method to fetch a customer by ID
+	  
     public Customer getCustomerById(int customerId) {
         Customer customer = null;
         try (Connection connection = DBConnectionFactory.getConnection();
@@ -145,7 +145,7 @@ public class CustomerDOA {
 	    return customer;
 	}
 	
-	// **Update Customer**
+	
     public boolean updateCustomer(Customer customer) {
         String query = "UPDATE customer SET name=?, email=?, password=?, nicNumber=?, phoneNumber=?, address=? WHERE customerId=?";
         try (Connection connection = DBConnectionFactory.getConnection();
@@ -160,7 +160,7 @@ public class CustomerDOA {
             statement.setInt(7, customer.getCustomerId());
 
             int rowsUpdated = statement.executeUpdate();
-            return rowsUpdated > 0; // ✅ Returns true if at least one row is updated
+            return rowsUpdated > 0; 
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -168,7 +168,7 @@ public class CustomerDOA {
         return false;
     }
 
-    // **Delete Customer**
+    
     public boolean deleteCustomer(int customerId) {
         String query = "DELETE FROM customer WHERE customerId=?";
         try (Connection connection = DBConnectionFactory.getConnection();
