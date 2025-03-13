@@ -13,10 +13,8 @@
       <link rel="shortcut icon" type="x-icon" href="Images/Yellowcar.png">
 
 
-      <!-- =============== REMIXICONS =============== -->
       <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
-      <!--=============== CSS ===============-->
       <link rel="stylesheet" href="CSS/driver.css">
       <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
@@ -353,7 +351,6 @@
     }
 %>
 
-    <!--=============== HEADER ===============-->
        <header class="header">
          <nav class="nav container">
             <div class="nav__data">
@@ -368,14 +365,12 @@
                </div>
             </div>
 
-            <!--=============== NAV MENU ===============-->
             <div class="nav__menu" id="nav-menu">
                <ul class="nav__list">
                   <li><a href="#" class="nav__link">Home</a></li>
 
                   <li><a href="Driver/viewRideHistory.jsp?driverId=<%= driverId %>" class="nav__link"> Ride History</a></li>
 
-                  <!--=============== DROPDOWN 1 ===============-->
                   <li class="dropdown__item">
                      <div class="nav__link">
                         Cabs <i class="ri-arrow-down-s-line dropdown__arrow"></i>
@@ -436,7 +431,6 @@
                   </li>
                   
 
-                  <!--=============== DROPDOWN 2 ===============-->
                   <li class="dropdown__item">
                      <div class="nav__link">
                         Driver <i class="ri-arrow-down-s-line dropdown__arrow"></i>

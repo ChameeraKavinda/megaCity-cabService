@@ -532,7 +532,7 @@
             ResultSet customerRs = customerStmt.executeQuery();
             if (customerRs.next()) {
                 customerName = customerRs.getString("name");
-                customerPhone = customerRs.getString("phoneNumber"); // Retrieve phone number
+                customerPhone = customerRs.getString("phoneNumber"); 
             }
             customerRs.close();
             customerStmt.close();

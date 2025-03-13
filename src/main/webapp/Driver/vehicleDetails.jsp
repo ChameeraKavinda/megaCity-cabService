@@ -60,7 +60,7 @@
         <p class="vehicle-info"><strong>Vehicle Type:</strong> <%= vehicle.getVehicleType() %></p>
         <p class="vehicle-info"><strong>License Number:</strong> <%= vehicle.getLicenseNumber() %></p>
         <p class="vehicle-info"><strong>Vehicle Color:</strong> <%= vehicle.getVehicleColor() %></p>
-        <p class="vehicle-info"><strong>Manufacture Date:</strong> <%= vehicle.getManufactureDate() %></p>
+        <p class="vehicle-info"><strong>Manufacture Year:</strong> <%= vehicle.getManufactureDate() %></p>
         <p class="vehicle-info"><strong>AC Type:</strong> <%= vehicle.getIsAC() %></p>
         <p class="vehicle-info"><strong>Passenger Type:</strong> <%= vehicle.getPassengerType() %></p>
         

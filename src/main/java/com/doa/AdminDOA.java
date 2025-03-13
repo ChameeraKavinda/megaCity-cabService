@@ -39,6 +39,34 @@ public class AdminDOA {
 		
 	}
 
+	
+	public Admin authenticateAdmin(String email, String password) {
+        String query = "SELECT * FROM admin WHERE email = ? AND password = ?";
+        try (Connection connection = DBConnectionFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setString(1, email);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return new Admin(
+                		 resultSet.getInt("adminId"),
+ 		                resultSet.getString("name"),
+ 		                resultSet.getString("email"),
+ 		                resultSet.getString("password"),
+ 		                resultSet.getString("phoneNumber"),
+ 		                resultSet.getString("role")
+
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null; 
+    }
+	
+	
 	public Admin getAdminByEmail(String email) {
 		Admin admin = null;
 		    String query = "SELECT * FROM admin WHERE email = ?";

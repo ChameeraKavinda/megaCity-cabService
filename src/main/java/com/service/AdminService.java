@@ -36,9 +36,9 @@ public class AdminService {
     }
     
 
-//    public Admin authenticateAdmin(String email, String password) {
-//        return adminDOA.authenticateAdmin(email, password);
-//    }
+  public Admin authenticateAdmin(String email, String password) {
+        return adminDOA.authenticateAdmin(email, password);
+   }
     
    
     public boolean updateAdmin(Admin admin) {
