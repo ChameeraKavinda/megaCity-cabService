@@ -122,7 +122,7 @@
         <h1>Update Driver Details</h1>
 
         <% if (driver != null) { %>
-            <form action="UpdateDriver" method="POST">
+            <form action="profileupdate" method="POST">
                 <input type="hidden" name="driverId" value="<%= driver.getDriverId() %>">
                 <div class="form-group">
                     <label for="name">Name</label>

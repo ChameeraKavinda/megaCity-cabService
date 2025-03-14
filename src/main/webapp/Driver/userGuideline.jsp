@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
     
-    <title>Customer Registration Guide | MegaCity Cab Service</title>
+    <title>Driver Registration Guide | MegaCity Cab Service</title>
     <style>
         /* Base styles */
         * {
@@ -335,19 +335,21 @@
 <body>
     <div class="container">
         <div class="logo">
-            <div class="logo-text"> <i class="ri-car-fill" style="margin-right: 10px;font-size: 35px;"></i>Mega<span>City</span> Cab Service</div>
+            
+            <div class="logo-text"> 
+            <a href="#" onclick="history.back()" class="nav__logo" style="text-decoration: none;color: black;">
+    			<i class="ri-arrow-left-s-line" style="margin-right: 20px;font-size: 35px;color: black;"></i>
+            <i class="ri-car-fill" style="margin-right: 10px;font-size: 35px;"></i>Mega<span>City</span> Cab Service</a></div>
+			
         </div>
         
- 		<h1><i class="ri-user-add-line"></i> Customer Registration Guide</h1>        <p>Welcome to MegaCity Cab Service! Follow these simple steps to create your account and start booking your rides.</p>
+ 		<h1><i class="ri-user-add-line"></i> Driver Registration Guide</h1>        <p>Welcome to MegaCity Cab Service! Follow these simple steps to create your account and View booking your rides.</p>
         
         <div class="step">
             <h2><i class="ri-global-line"></i>  Step 1: Visit Our Website</h2>
-            <p><b>Option:1 </b>b>Go to <a href="<%= request.getContextPath() %>/index.jsp">MegaCityCab.com</a> and click on the <strong>"User"</strong> button located at the top right corner of the Navigation bar.</p>
-            <p>Click it and Choose Register button and click on the <strong>"Register"</strong> button located at the drop menuu of the User .</p>
-            <img src="<%= request.getContextPath() %>/View/img/Register.jpg" alt="Register">
-            
-           <br> <br><br><p><b>Option:2 </b>b>Go to <a href="#">MegaCityCab.com</a> and click on the <strong>"Book Your Ride  Now"</strong> button.</p>
-           <img src="<%= request.getContextPath() %>/View/img/Register2.jpg" alt="Register2">
+            <p><b>Option:1 </b>Go to <a href="<%= request.getContextPath() %>/index.jsp">MegaCityCab.com</a> and click on the <strong>"Carrers"</strong> button located at the top  of the Navigation bar.</p>
+            <p>Click  on the <strong>"Apply Now"</strong> button.</p>
+           <img src="<%= request.getContextPath() %>/Driver/img/driverGuidlineApply1.jpg" alt="applybtn">
             
         </div>
         
@@ -357,10 +359,9 @@
                 <li><i class="ri-user-line"></i> <strong>Full Name:</strong> Enter your name.</li>
                 <li><i class="ri-mail-line"></i> <strong>Email Address:</strong> Provide a valid email.</li>
                 <li><i class="ri-lock-line"></i> <strong>Password:</strong> Create a strong password.</li>
-                <li><i class="ri-lock-password-line"></i> <strong>Password:</strong> Confirm a password.</li>
-                <li><i class="ri-id-card-line"></i> <strong>NIC Number:</strong> Enter your valid NIC number.</li>
+                 <li><i class="ri-pass-pending-line"></i> <strong>Licence Number:</strong> Enter your valid Licence number.</li>
                 <li><i class="ri-phone-line"></i> <strong>Phone Number:</strong> Enter your active contact number.</li>
-                <li><i class="ri-home-4-line"></i> <strong>Adress:</strong> Enter your home address.</li>
+                <li><i class="ri-user-search-line"></i><strong>Availability:</strong> Choose your Availability(<b>Availble</b> or <b>Not</b>).</li>
                 
             </ul>
             
@@ -383,14 +384,10 @@
                     <input type="password" name="password" id="password" required placeholder="Create a password" autocomplete="new-password">
                 </div>
 
+               
                 <div class="form-group">
-                    <label for="confirmPassword">Confirm Password*</label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" required placeholder="Confirm your password">
-                </div>
-                
-                <div class="form-group">
-        			<label for="nicNumber">NIC Number*</label>
-        			<input type="text" name="nicNumber" id="nicNumber" required placeholder="Enter your NIC number">
+        			<label for="nicNumber">Licence Number*</label>
+        			<input type="text" name="nicNumber" id="nicNumber" required placeholder="Enter your Licence number">
     			</div>
                 
                 <div class="form-group">
@@ -399,8 +396,8 @@
                 </div>
                 
                 <div class="form-group">
-        			<label for="address">Address*</label>
-        			<input type="text" name="address" id="address" required placeholder="Enter your address" autocomplete="street-address">
+        			<label for="address">Availability*</label>
+        			<input type="text" name="address" id="address" required placeholder="Choose Your Availability" autocomplete="street-address">
     			</div>
                 
                 <div class="error-message" id="errorContainer"></div>
@@ -434,83 +431,48 @@
        
         
         <div class="step">
-            <h2><i class="ri-checkbox-circle-line"></i> Step 3: Click the Register button and Move Login page</h2>
-            <p>Once verified, return to the website, log in with your email and password, and you're ready to book your first ride with MegaCity Cab Service!</p>
-             <div class="form-section">
-      
-            
-            <form  id="registrationForm" novalidate>
-                
-                
-                <div class="form-group">
-                    <label for="email">Email*</label>
-                    <input type="email" name="email" id="email" required placeholder="Enter your email" autocomplete="email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Password*</label>
-                    <input type="password" name="password" id="password" required placeholder="Create a password" autocomplete="new-password">
-                </div>
-
-             
-                <button type="submit" class="submit-button">Login</button>
-            </form>
-
-
-            <div class="sign-with">
-                <span class="sign-with-text">or sign in with</span>
-            </div>
-
-            <div class="social-icons">
-                <a href="#" aria-label="Sign up with Google">
-                    <i class="ri-google-line"></i>
-                </a>
-                <a href="#" aria-label="Sign up with Facebook">
-                    <i class="ri-facebook-circle-line"></i>
-                </a>
-                <a href="#" aria-label="Sign up with WhatsApp">
-                    <i class="ri-whatsapp-line"></i>
-                </a>
-            </div>
-
-            <div class="signup-link">
-               Don't have an account? Sign Up
-            </div>
-        </div>
-        </div>
-        
-        
-        <div class="step">
-             <h2><i class="ri-login-box-line"></i> Step 4: Log In & Start Booking</h2>
-            <p>Return to the website, log in with your email and password, and book your first ride with MegaCity Cab Service!</p>
-        </div>
-        
-        
-        <div class="step">
-             <h2><i class="ri-login-box-line"></i> Step 5: Click the Book  button.</h2>
-            <p>Click the "Book Management" button and You can see a drop menu, Clicked <b>"Book"</b> button or Clicked <b>"Book a ride Now"</b> ,  you will be taken to the "You can choose a vehicle" page.!</p>
-			<p><b>Option 01</b></p><img src="<%= request.getContextPath() %>/View/img/Booking.jpg" alt="Booking"><br><br>
-           <p><b>Option 02</b></p><img src="<%= request.getContextPath() %>/View/img/Register2.jpg" alt="Register2">
-        </div>
-        
-        <div class="step">
-             <h2><i class="ri-login-box-line"></i> Step 6: Click the Book Now button.</h2>
-            <p>After booking a vehicle of your choice and clicking on the "Book Now" button, you will be taken to the "Booking Location" page.</p>
-        	<img src="<%= request.getContextPath() %>/View/img/BookNow.jpg" alt="BookNow">
-        
+            <h2><i class="ri-checkbox-circle-line"></i> Step 3: Fill in your Ask Questions</h2>           
+           <img src="<%= request.getContextPath() %>/Driver/img/Question.jpg" alt="question">         
         </div>
         
          <div class="step">
-             <h2><i class="ri-map-pin-line"></i> Step 7:  Access the 'Booking Location' page.</h2>
-            <p>After accessing the 'Booking Location' page, when data is entered in <b>'Booking Date'</b> <b>'Pickup Location'</b>and<b>  'Drop Location'</b> the Destination, Tax Fee, Discount Fee, and Price are calculated, and the 'Total Price' is displayed to the user. The booking can then be successfully made by clicking on 'Confirm Booking'.</p>
-       		<img src="<%= request.getContextPath() %>/View/img/BookingConfirm.jpg" alt="BookingConfirm">
+            <h2><i class="ri-checkbox-circle-line"></i> Step 4: Vehicle Register Option</h2>           
+            <p>After clicking <b>"Next"</b>button and you can Register Your Vehicle Easily.</p>
+           <img src="<%= request.getContextPath() %>/Driver/img/vehicleRegister.jpg" alt="vehicleRegister">         
+        </div>
+        
+        
+        <div class="step">
+             <h2><i class="ri-login-box-line"></i> Step 5: Registered In & Start Ride</h2>
+            <p>Return to the website, successfully registered, and start your first ride with MegaCity Cab Service!</p>
+           	<img src="<%= request.getContextPath() %>/Driver/img/driverHome.jpg" alt="driverHome"> 
+           	<br><br><p>	Clicke there <b> "View Your Ride" </b>button and Searching what are the  avialble bookings!</p>
+           	        
+            
+        </div>
+        
+        
+        <div class="step">
+             <h2><i class="ri-login-box-line"></i> Step 6:How to Start Your Ride .</h2>
+             <img src="<%= request.getContextPath() %>/Driver/img/StartRide.jpg" alt="StartRide"> 
+            <br><br><p>Click the "Start Ride" button and You can start your Ride,  First you want Update Ride Status.</p>
+			
+        </div>
+        
+       
+         <div class="step">
+             <h2><i class="ri-refresh-line"></i> Step 7:  How To Upadte Ride Status?.</h2>
+            <p>After clicking the 'Start Ride' button, when you can see a <b>  'Booking Staus' option and You can manage it.</b> '.</p>
+       		<img src="<%= request.getContextPath() %>/Driver/img/UpdateStatus.jpg" alt="UpdateStatus">
 		</div>
         
         <div class="step">
-             <h2><i class="ri-chat-history-line"></i> Step 8:  View booking details in 'Book History'.</h2>
-            <p>After successfully completing the booking, you will be redirected to the home page, where you can view all the details of your booking by clicking on 'Book History' in the dropdown menu under 'Booking Management'..</p>
-        	<img src="<%= request.getContextPath() %>/View/img/BookingHistory.jpg" alt="BookingHistory">
+             <h2><i class="ri-chat-history-line"></i> Step 8:  View Ride details in 'Ride History'.</h2>
+            <p>After successfully completing the your ride, you will be redirected to the home page, where you can view all the details of your ride by clicking on 'Ride History' in the Navigation bar.</p>
+        	<img src="<%= request.getContextPath() %>/Driver/img/RideHistory.jpg" alt="RideHistory">
         </div>
+        
+        
         
         
         

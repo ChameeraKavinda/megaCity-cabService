@@ -438,7 +438,7 @@
 
                      <ul class="dropdown__menu">
                         <li>
-                           <a href="Admin/updateDriver.jsp?driverId=<%= driverId %>" class="dropdown__link">
+                           <a href="Driver/updateProfile.jsp?driverId=<%= driverId %>" class="dropdown__link">
                               <i class="ri-user-line"></i> Profiles
                            </a>                          
                         </li>
@@ -457,8 +457,8 @@
                      </ul>
                   </li>
 
-                  <li><a href="#feedback" class="nav__link">Contact Us</a></li>
                   <li><a href="Driver/driverLogout.jsp" class="nav__link">Logout</a></li>
+                 	<li><a href="Driver/userGuideline.jsp" class="nav__link">Help</a></li>
                   
                </ul>
             </div>

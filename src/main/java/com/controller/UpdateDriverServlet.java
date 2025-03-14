@@ -42,7 +42,7 @@ public class UpdateDriverServlet extends HttpServlet {
 	            // Update driver
 	            boolean isUpdated = driverService.updateDriver(driver);
 	            if (isUpdated) {
-	            	response.sendRedirect(request.getContextPath() + "/driverDashboard.jsp?driverId=" + driverId);
+	            	response.sendRedirect(request.getContextPath() + "/Admin/viewAllDrivers.jsp?driverId=" + driverId);
 	            } else {
 	                response.getWriter().write("Update Failed");
 	            }
