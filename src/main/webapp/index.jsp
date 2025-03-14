@@ -89,7 +89,7 @@
     								Customer loggedInCustomer = (Customer) session.getAttribute("customer");
     								if (loggedInCustomer != null) {
 								%>
-                           <a href="<%= request.getContextPath() %>/Admin/updateCustomer.jsp?customerId=<%= loggedInCustomer.getCustomerId() %>" class="dropdown__link">
+                           <a href="<%= request.getContextPath() %>/View/updateProfile.jsp?customerId=<%= loggedInCustomer.getCustomerId() %>" class="dropdown__link">
                               <i class="ri-user-line"></i> Profiles
                            </a>  
                            <%

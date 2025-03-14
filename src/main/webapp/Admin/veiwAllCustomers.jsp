@@ -743,7 +743,7 @@
                                     <div class="mobile-card-value"><%= customer.getAddress() %></div>
                                 </div>
                                 <div class="mobile-card-actions">
-                        <form action="<%= request.getContextPath() %>/Admin/updateCustomer.jsp" method="GET" style="display:inline;">
+                        <form action="<%= request.getContextPath() %>/View/updateProfile.jsp" method="GET" style="display:inline;">
                         <input type="hidden" name="customerId" value="<%= customer.getCustomerId() %>">
                          <button type="submit" class="action-btn update-btn">Update</button>
                     </form>

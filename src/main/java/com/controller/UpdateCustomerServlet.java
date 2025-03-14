@@ -36,7 +36,7 @@ public class UpdateCustomerServlet extends HttpServlet {
             // Update customer
             boolean isUpdated = customerService.updateCustomer(customer);
             if (isUpdated) {
-            	response.sendRedirect(request.getContextPath() + "/index.jsp?customerId=" +customerId);
+            	response.sendRedirect(request.getContextPath() + "/Admin/veiwAllCustomers.jsp?customerId=" +customerId);
             } else {
                 response.getWriter().write("Update Failed");
             }
